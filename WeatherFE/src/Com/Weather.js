@@ -8,23 +8,6 @@ function Weather() {
     setCityName(event.target.value);
   };
 
-  const fetchLastWeatherRecord = async () => {
-    try {
-      const response = await fetch(
-        "http://localhost:8080/weather/getLastRecord"
-      );
-      if (response.ok) {
-        const data = await response.json();
-        return data;
-      } else {
-        return null;
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      return null;
-    }
-  };
-
   const weatherDetails = async () => {
     try {
       const response = await fetch(
@@ -44,14 +27,6 @@ function Weather() {
             data.feels_like
           }`
         );
-
-        // Fetch the last record after getting weather details
-        //   const lastRecord = await fetchLastWeatherRecord();
-        //   if (lastRecord) {
-        //     console.log("Last Record:", lastRecord); // You can handle the last record data here
-        //   } else {
-        //     console.log("Last record not available");
-        //   }
       } else {
         setWeatherInfo("Weather details not available");
       }

@@ -53,18 +53,7 @@ public class WeatherController {
 
     	return wd;
     }
-//    @GetMapping("/weather/getLastRecord")
-//    public ResponseEntity<WeatherDetails> getLastWeatherRecord() {
-//        WeatherDetails lastRecord = wds.getLastRecord();
-//        
-//        if (lastRecord != null) {
-//            return ResponseEntity.ok(lastRecord);
-//        } else {
-//            // Handle case when no last record is available
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
-//    
+
     public JSONObject getWeather(){
         client = new OkHttpClient();  
         Request request = new Request.Builder()
@@ -73,7 +62,6 @@ public class WeatherController {
 
         try {
             response = client.newCall(request).execute();
-//            System.out.println("I dont think this will get called " + response.body().string());
             return new JSONObject(response.body().string());
         }catch (IOException | JSONException e){
             e.printStackTrace();

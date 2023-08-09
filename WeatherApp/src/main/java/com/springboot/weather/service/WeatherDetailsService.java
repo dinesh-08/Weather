@@ -19,17 +19,4 @@ public class WeatherDetailsService {
 		return wdp.save(wd);
 		
 	}
-	 public WeatherDetails getLastRecord() {
-	        
-	        
-	        
-	         List<WeatherDetails> allWeatherDetails = wdp.findAll();
-	         if (!allWeatherDetails.isEmpty()) {
-	             return allWeatherDetails.get(allWeatherDetails.size() - 1);
-	         } else {
-	             return null; 
-	         } 
-	    }
-
-
-    }
+}
